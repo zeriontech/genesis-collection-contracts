@@ -3,8 +3,8 @@
 This is a project with a simple NFT token.
 
 The main functionality of this token is `claim()` function.
-It can be called once per EOA (Ethereum address) and only within a deadline (5 days after the deployment).
-For every account, `call()` function 'randomly' mints 1 of 10 NFT tokens with the following probabilities:
+It can be called once per EOA (Ethereum address) and only within a deadline (Aug 01 2021 00:00:00 UTC).
+For every account, `claim()` function 'randomly' mints 1 of 10 NFT tokens with the following probabilities:
 
 0. Legendary – 0.1%
 1. Rare – 5.1%
