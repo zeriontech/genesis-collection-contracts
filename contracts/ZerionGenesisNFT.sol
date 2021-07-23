@@ -45,8 +45,8 @@ contract ZerionGenesisNFT is ERC1155Supply, IZerionGenesisNFT {
         uint256 deadline_
     ) ERC1155("") {
         for (uint256 i = 0; i < 10; i++) {
-            uri[i] = hashToURI(ipfsHashes_[i]);
-            emit URI(uri[i], i);
+            uri[i + 1] = hashToURI(ipfsHashes_[i]);
+            emit URI(hashToURI(ipfsHashes_[i]), i + 1);
         }
         contractURI = hashToURI(contractIpfsHash_);
 
@@ -76,9 +76,9 @@ contract ZerionGenesisNFT is ERC1155Supply, IZerionGenesisNFT {
 
     /// @inheritdoc IZerionGenesisNFT
     function rarity(uint256 tokenId) external view override returns (uint256) {
-        if (tokenId > 9) return uint256(0);
+        if (tokenId == 0 || tokenId > 10) return uint256(0);
 
-        return (uint256(uint8(rarities[tokenId])) * 1000) / uint256(totalRarity);
+        return (uint256(uint8(rarities[tokenId - 1])) * 1000) / uint256(totalRarity);
     }
 
     /// @inheritdoc IERC165
@@ -113,12 +113,12 @@ contract ZerionGenesisNFT is ERC1155Supply, IZerionGenesisNFT {
         for (uint256 i = 9; i > 0; i--) {
             limit -= uint256(uint8(rarities[i]));
             // slither-disable-next-line timestamp
-            if (number >= limit) return i;
+            if (number >= limit) return i + 1;
         }
 
-        // We limit the amount of NFTs with `id == 0` by 10.
-        if (totalSupply(0) == 10) return getId(salt + 1);
-        return uint256(0);
+        // We limit the amount of NFTs with `id == 1` by 10.
+        if (totalSupply(1) == 10) return getId(salt + 1);
+        return uint256(1);
     }
 
     /// @dev Adds IPFS prefix for a given IPFS hash.

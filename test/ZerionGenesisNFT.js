@@ -12,7 +12,6 @@ describe('ZerionGenesisNFT', () => {
     factory = await ethers.getContractFactory('ZerionGenesisNFT');
     nft = await factory.deploy(
       [
-        'metadata_ipfs_hash_0',
         'metadata_ipfs_hash_1',
         'metadata_ipfs_hash_2',
         'metadata_ipfs_hash_3',
@@ -22,6 +21,7 @@ describe('ZerionGenesisNFT', () => {
         'metadata_ipfs_hash_7',
         'metadata_ipfs_hash_8',
         'metadata_ipfs_hash_9',
+        'metadata_ipfs_hash_10',
       ],
       'metadata_ipfs_hash',
       '0x013333338d8d8d8d8d8d',
@@ -41,7 +41,7 @@ describe('ZerionGenesisNFT', () => {
     await nft.claim();
     let balances = await nft.balanceOfBatch(
       Array(10).fill(owner.address),
-      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     );
 
     expect(balances.reduce((a, c) => a.add(c))).to.be.equal(BigNumber.from('1'));
@@ -56,10 +56,10 @@ describe('ZerionGenesisNFT', () => {
   });
 
   it('Should be correct rarities', async () => {
-    const rarities = [1, 51, 51, 51, 141, 141, 141, 141, 141, 141, 0];
+    const rarities = [0, 1, 51, 51, 51, 141, 141, 141, 141, 141, 141, 0];
 
     // eslint-disable-next-line no-restricted-syntax
-    for await (const id of Array.from({ length: 11 }, (_, i) => i)) {
+    for await (const id of Array.from({ length: 12 }, (_, i) => i)) {
       if (id === parseInt(id, 10)) {
         // eslint-disable-next-line no-await-in-loop
         const rarity = await nft.rarity(id);
@@ -70,15 +70,16 @@ describe('ZerionGenesisNFT', () => {
 
   it('Should be correct URIs', async () => {
     // eslint-disable-next-line no-restricted-syntax
-    for await (const id of Array.from({ length: 10 }, (_, i) => i)) {
+    for await (const id of Array.from({ length: 11 }, (_, i) => i)) {
       if (id === parseInt(id, 10)) {
+        if (id == 0) continue;
         // eslint-disable-next-line no-await-in-loop
         const uri = await nft.uri(id);
         expect(uri).to.be.equal(`ipfs://metadata_ipfs_hash_${id}`);
       }
     }
 
-    let uri = await nft.uri(10);
+    let uri = await nft.uri(0);
     expect(uri).to.be.equal('');
   });
 
@@ -105,7 +106,6 @@ describe('ZerionGenesisNFT', () => {
   it('Should not claim after the deadline', async () => {
     let badNft = await factory.deploy(
       [
-        'metadata_ipfs_hash_0',
         'metadata_ipfs_hash_1',
         'metadata_ipfs_hash_2',
         'metadata_ipfs_hash_3',
@@ -115,6 +115,7 @@ describe('ZerionGenesisNFT', () => {
         'metadata_ipfs_hash_7',
         'metadata_ipfs_hash_8',
         'metadata_ipfs_hash_9',
+        'metadata_ipfs_hash_10',
       ],
       'metadata_ipfs_hash',
       '0x013333338d8d8d8d8d8d',
