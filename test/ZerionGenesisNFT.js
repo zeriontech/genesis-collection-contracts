@@ -48,10 +48,6 @@ describe('ZerionGenesisNFT', () => {
   });
 
   it('Should indicate that NFT is minted', async () => {
-    let iface = factory.interface;
-    console.log(iface.encodeFunctionData('claimed', [owner.address]));
-    console.log(nft.claimed(owner.address).buildTransaction())
-    console.log(await nft.claimed(owner.address))
     expect(await nft.claimed(owner.address)).to.be.true;
   });
 
