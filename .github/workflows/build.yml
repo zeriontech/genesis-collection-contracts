@@ -1,0 +1,23 @@
+name: build
+on: push
+
+jobs:
+  coverage:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup-node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - name: install
+        run: npm ci
+      - name: build
+        run: npm run compile
+      - name: upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: artifacts
+          path: artifacts/contracts

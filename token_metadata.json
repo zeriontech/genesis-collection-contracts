@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_0_hash",
+    "properties": {
+      "rarity": "Legendary"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_1_hash",
+    "properties": {
+      "rarity": "Rare"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_2_hash",
+    "properties": {
+      "rarity": "Rare"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_3_hash",
+    "properties": {
+      "rarity": "Rare"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_4_hash",
+    "properties": {
+      "rarity": "Common"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_5_hash",
+    "properties": {
+      "rarity": "Common"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_6_hash",
+    "properties": {
+      "rarity": "Common"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_7_hash",
+    "properties": {
+      "rarity": "Common"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_8_hash",
+    "properties": {
+      "rarity": "Common"
+    }
+  },
+  {
+    "name": "Zerion Genesis NFT",
+    "description": "Zerion Genesis NFT dedicated to the launch of NFT support in Zerion",
+    "image": "ipfs://ipfs_image_9_hash",
+    "properties": {
+      "rarity": "Common"
+    }
+  }
+]
