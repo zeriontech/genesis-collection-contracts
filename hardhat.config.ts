@@ -29,13 +29,13 @@ const config: HardhatUserConfig = {
     },
     rinkeby: {
       url: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.PRIVATE_KEY ? process.env.PRIVATE_KEY.toString() : ""],
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY.toString()] : [],
       gasPrice: 1 * 1000000000,
       gas: 1500000,
     },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.PRIVATE_KEY ? process.env.PRIVATE_KEY.toString() : ""],
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY.toString()] : [],
       gasPrice: 32.1 * 1000000000,
       gas: 300000,
     },
