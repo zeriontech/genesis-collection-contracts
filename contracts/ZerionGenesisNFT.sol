@@ -15,11 +15,10 @@ contract ZerionGenesisNFT is ERC1155Supply, IZerionGenesisNFT {
     string public override symbol;
     /// @inheritdoc IZerionGenesisNFT
     string public override contractURI;
-    /// @notice IPFS URI for a given id.
-    mapping(uint256 => string) public override uri;
 
     bytes10 internal immutable rarities;
     uint256 internal immutable totalRarity;
+    mapping(uint256 => string) internal ipfsHashes;
 
     uint256 internal constant TOKEN_AMOUNT = 1;
     string internal constant IPFS_PREFIX = "ipfs://";
@@ -45,7 +44,7 @@ contract ZerionGenesisNFT is ERC1155Supply, IZerionGenesisNFT {
         uint256 deadline_
     ) ERC1155("") {
         for (uint256 i = 0; i < 10; i++) {
-            uri[i + 1] = hashToURI(ipfsHashes_[i]);
+            ipfsHashes[i + 1] = ipfsHashes_[i];
             emit URI(hashToURI(ipfsHashes_[i]), i + 1);
         }
         contractURI = hashToURI(contractIpfsHash_);
@@ -79,6 +78,13 @@ contract ZerionGenesisNFT is ERC1155Supply, IZerionGenesisNFT {
         if (tokenId == 0 || tokenId > 10) return uint256(0);
 
         return (uint256(uint8(rarities[tokenId - 1])) * 1000) / uint256(totalRarity);
+    }
+
+    /// @inheritdoc IZerionGenesisNFT
+    function uri(uint256 tokenId) public view virtual override(ERC1155, IZerionGenesisNFT) returns (string memory) {
+        if (tokenId == 0 || tokenId > 10) return "";
+
+        return hashToURI(ipfsHashes[tokenId]);
     }
 
     /// @inheritdoc IERC165

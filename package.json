@@ -1,6 +1,6 @@
 {
   "name": "genesis-collection-nft",
-  "version": "1.0.0",
+  "version": "1.0.0-rc",
   "main": "hardhat.config.ts",
   "directories": {
     "test": "test"

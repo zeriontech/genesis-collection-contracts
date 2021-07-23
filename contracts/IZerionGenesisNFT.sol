@@ -29,4 +29,7 @@ interface IZerionGenesisNFT is IERC1155 {
 
     /// @notice Collection metadata URI.
     function contractURI() external view returns (string memory);
+
+    /// @notice IPFS URI for a given id.
+    function uri(uint256) external view returns (string memory);
 }
