@@ -1,6 +1,6 @@
 {
   "name": "genesis-collection-nft",
-  "version": "1.0.0-rc",
+  "version": "1.0.0",
   "main": "hardhat.config.ts",
   "directories": {
     "test": "test"
@@ -8,9 +8,9 @@
   "scripts": {
     "postinstall": "husky install",
     "compile": "npx hardhat compile",
-    "deploy:development": "npx hardhat run scripts/deploy.js --network development",
+    "deploy:hardhat": "npx hardhat run scripts/deploy.js --network hardhat",
     "deploy:mainnet": "npx hardhat run scripts/deploy.js --network mainnet",
-    "verify:mainnet": "npx hardhat verify --network mainnet",
+    "verify:mainnet": "npx hardhat verify --constructor-args arguments.js --network mainnet",
     "deploy:rinkeby": "npx hardhat run scripts/deploy.js --network rinkeby",
     "verify:rinkeby": "npx hardhat verify --network rinkeby",
     "test": "npx hardhat test --show-stack-traces",
