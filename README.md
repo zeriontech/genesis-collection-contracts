@@ -1,4 +1,4 @@
-# zerion-genesis-nft
+## Genesis Collection NFT
 
 This is a project with a Genesis Collection NFT token.
 
@@ -20,6 +20,8 @@ For every account, `claim()` function 'randomly' mints 1 of 10 NFT tokens with t
 The mainnet address is the following: [0x74EE68a33f6c9f113e22B3B77418B75f85d07D22](https://etherscan.io/address/0x74EE68a33f6c9f113e22B3B77418B75f85d07D22#code).
 
 Call `claim()` function within a deadline and try your luck!
+
 ---
+
 Hello @opensea!
 [0x96ebc0797ded0248a71eeca231505182179ee6fd]
