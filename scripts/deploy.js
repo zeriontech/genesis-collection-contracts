@@ -1,5 +1,4 @@
-import { ipfsHashes, contractIpfsHash, rarities, name, symbol, deadline } from './arguments.js'
-
+import { ipfsHashes, contractIpfsHash, rarities, name, symbol, deadline } from './arguments';
 
 async function main() {
   const [deployer] = await ethers.getSigners();

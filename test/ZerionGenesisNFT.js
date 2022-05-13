@@ -34,6 +34,7 @@ describe('ZerionGenesisNFT', () => {
   });
 
   it('Should indicate that NFT is not minted', async () => {
+    // eslint-disable-next-line no-unused-expressions
     expect(await nft.claimed(owner.address)).to.be.false;
   });
 
@@ -48,6 +49,7 @@ describe('ZerionGenesisNFT', () => {
   });
 
   it('Should indicate that NFT is minted', async () => {
+    // eslint-disable-next-line no-unused-expressions
     expect(await nft.claimed(owner.address)).to.be.true;
   });
 
@@ -72,10 +74,11 @@ describe('ZerionGenesisNFT', () => {
     // eslint-disable-next-line no-restricted-syntax
     for await (const id of Array.from({ length: 11 }, (_, i) => i)) {
       if (id === parseInt(id, 10)) {
-        if (id == 0) continue;
-        // eslint-disable-next-line no-await-in-loop
-        const uri = await nft.uri(id);
-        expect(uri).to.be.equal(`ipfs://metadata_ipfs_hash_${id}`);
+        if (id > 0) {
+          // eslint-disable-next-line no-await-in-loop
+          const uri = await nft.uri(id);
+          expect(uri).to.be.equal(`ipfs://metadata_ipfs_hash_${id}`);
+        }
       }
     }
 

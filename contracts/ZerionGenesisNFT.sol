@@ -81,7 +81,13 @@ contract ZerionGenesisNFT is ERC1155Supply, IZerionGenesisNFT {
     }
 
     /// @inheritdoc IZerionGenesisNFT
-    function uri(uint256 tokenId) public view virtual override(ERC1155, IZerionGenesisNFT) returns (string memory) {
+    function uri(uint256 tokenId)
+        public
+        view
+        virtual
+        override(ERC1155, IZerionGenesisNFT)
+        returns (string memory)
+    {
         if (tokenId == 0 || tokenId > 10) return "";
 
         return hashToURI(ipfsHashes[tokenId]);
