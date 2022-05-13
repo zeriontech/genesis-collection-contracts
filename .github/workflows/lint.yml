@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: "17.x"
       - name: install
-        run: npm ci
+        run: npm i
       - name: build
         run: npm run compile
       - name: lint
