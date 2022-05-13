@@ -68,7 +68,6 @@
     "solidity-coverage": "0.7.21",
     "truffle": "5.5.14",
     "ts-node": "10.7.0",
-    "typescript": "4.6.4",
-    "webpack": "5.72.1"
+    "typescript": "4.6.4"
   }
 }
