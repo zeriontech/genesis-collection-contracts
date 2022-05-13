@@ -5,3 +5,5 @@ artifacts
 .DS_Store
 coverage
 coverage.json
+.idea
+.vscode
