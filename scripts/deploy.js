@@ -12,7 +12,12 @@ async function main() {
 
   const factory = await ethers.getContractFactory('ZerionGenesisNFT');
   const contract = await factory.deploy(
-    ipfsHashes, contractIpfsHash, rarities, name, symbol, deadline,
+    ipfsHashes,
+    contractIpfsHash,
+    rarities,
+    name,
+    symbol,
+    deadline,
   );
 
   console.log('Contract address:', contract.address);
